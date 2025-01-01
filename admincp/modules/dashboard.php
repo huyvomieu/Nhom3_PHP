@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <div id="content" class="container-fluid">
         <h1 class="text-center p-2">Biểu đồ thống kê doanh thu</h1>
         <div>
@@ -14,4 +14,4 @@
             <div id="chart1" style="height: 200px;"></div>
         </div>
     </div>
-</div>
+</div> -->
