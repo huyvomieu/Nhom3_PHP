@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
                   <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
                 </label>  
                   <div class="form-outline flex-fill mb-0">
-                    <input type="text" id="phonenumber" class="form-control" required name="phonenumber" placeholder="Phone number"/>
+                    <input type="number" id="phonenumber" class="form-control" required name="phonenumber" placeholder="Phone number"/>
                   </div>
                 </div>
 

@@ -10,21 +10,21 @@
 ?>
 <div class="container my-5 bg-white">
     <form action="index.php?navigate=confirm_order" method="POST">
-        <p class="pt-3 text-center">Thông Tin Đặt Hàng</p>
+        <p class="pt-3 text-center">Thông tin đặt hàng</p>
         <div class="mt-2">
-            <label for="">Người Nhận: </label>
+            <label for="">Người nhận: </label>
             <input required class="form-control" type="text" name="order_receiver" value="<?php echo $order_receiver; ?>">
         </div>
         <div class="mt-2">
-            <label for="">Địa Chỉ: </label>
+            <label for="">Địachỉ: </label>
             <input required class="form-control" type="text" name="order_address"  value="<?php echo $order_address; ?>">
         </div>
         <div class="mt-2">
-            <label for="">SDT:</label>
+            <label for="">SĐT:</label>
             <input required class="form-control" type="text" name="order_phone" value="<?php echo $order_phone; ?>">
         </div>
         <div class="mt-2">
-            <label for="">Ghi Chú: </label>
+            <label for="">Ghi chú: </label>
             <input class="form-control" type="text" name="order_notes">
         </div>
         <input class="btn btn-success mt-3 mb-3" type="submit" value="Confirm">

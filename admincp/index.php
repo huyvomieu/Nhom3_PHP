@@ -62,14 +62,14 @@
             <div id="page-body" class="d-flex">
                 <div id="sidebar" class="bg-white">
                     <ul id="sidebar-menu">
-                        <li class="nav-link">
+                    <!--    <li class="nav-link">
                             <a href="index.php">
                                 <div class="nav-link-icon d-inline-flex">
                                     <i class="fas fa-chart-bar"></i>
                                 </div>
                                 Statistical tables
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="nav-link">
                             <a href="?product=product_list">

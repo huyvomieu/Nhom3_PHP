@@ -37,7 +37,7 @@
           </tr>
             <tr class="text-center">
               <th scope="col">STT</th>
-              <th scope="col">Tiêu đề</th>
+              <th scope="col">Tên sản phẩm</th>
               <th scope="col">Số lượng</th>
               <th scope="col">Giá bán</th>
             </tr>

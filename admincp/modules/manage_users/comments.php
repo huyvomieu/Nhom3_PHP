@@ -32,10 +32,20 @@
                         <td><?php echo $row_comment['comment_content'] ?></td>
                         <td><?php echo $row_comment['comment_time'] ?></td>
                         <td>
-                            <a href="modules/manage_users/delete_comment.php?id=<?php echo $row_comment['comment_id']?>" class="btn btn-danger btn-sm rounded text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                            <a href="javascript:void(0);" onclick="confirmDeletion(<?php echo $row_comment['comment_id']; ?>);" class="btn btn-danger btn-sm rounded text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
+
                     </tr>
                     <?php } ?>
+                    <script>
+                        function confirmDeletion(commentId) {
+                            const confirmAction = confirm("Are you sure you want to delete this comment?");
+                            if (confirmAction) {
+                                window.location.href = `modules/manage_users/delete_comment.php?id=${commentId}`;
+                            }
+                        }
+                    </script>
+
                 </tbody>
             </table>
         </div>

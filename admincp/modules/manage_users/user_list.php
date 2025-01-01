@@ -35,10 +35,21 @@
                         <td><?php echo $row_user['user_loginname'] ?></td>
                         <td class="d-flex">
                             <a href="?user=change_user_info&id=<?php echo $row_user['user_id']?>" class="btn btn-success btn-sm rounded text-white mr-2" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            <a href="modules/manage_users/delete_user.php?id=<?php echo $row_user['user_id']?>" class="btn btn-danger btn-sm rounded text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                            <a href="javascript:void(0);" onclick="confirmDeletion(<?php echo $row_user['user_id']; ?>);" class="btn btn-danger btn-sm rounded text-white" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
+
                     </tr>
                 <?php } ?>
+
+                <script>
+                    function confirmDeletion(userId) {
+                        const confirmAction = confirm("Are you sure you want to delete this user?");
+                        if (confirmAction) {
+                            window.location.href = `modules/manage_users/delete_user.php?id=${userId}`;
+                        }
+                    }
+                </script>
+
                 </tbody>
             </table>
         </div>
