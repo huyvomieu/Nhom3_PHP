@@ -13,19 +13,19 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
           </div>
-          <input readonly name="fullname" class="form-control" value="<?php echo $row['user_fullname'] ?>">
+          <input readonly name="fullname" class="form-control" value="<?=$row['user_fullname'] ?>">
         </div>
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
           </div>
-          <input readonly name="email" class="form-control" value="<?php echo $row['user_email'] ?>">
+          <input readonly name="email" class="form-control" value="<?=$row['user_email'] ?>">
         </div>
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
           </div>
-          <input readonly name="phone" class="form-control" value="<?php echo $row['user_phone'] ?>">
+          <input readonly name="phone" class="form-control" value="<?=$row['user_phone'] ?>">
         </div>
         <div class="form-group input-group">
           <div class="input-group-prepend">

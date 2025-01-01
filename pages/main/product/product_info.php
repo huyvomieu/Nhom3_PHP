@@ -1,67 +1,70 @@
 <?php
-    $sql_product = "SELECT * FROM tblproduct  where product_id = '$_GET[product_id]' ORDER BY product_id DESC";
-    $query_product = mysqli_query($mysqli, $sql_product);
-    $row_product = mysqli_fetch_array($query_product);
-    $sql_comment = "SELECT * FROM tblcomment,tbluser 
+$sql_product = "SELECT * FROM tblproduct  where product_id = '$_GET[product_id]' ORDER BY product_id DESC";
+$query_product = mysqli_query($mysqli, $sql_product);
+$row_product = mysqli_fetch_array($query_product);
+$sql_comment = "SELECT * FROM tblcomment,tbluser 
     where tblcomment.product_id = '$_GET[product_id]' and tblcomment.user_id = tbluser.user_id";
-    $query_comment = mysqli_query($mysqli, $sql_comment);
+$query_comment = mysqli_query($mysqli, $sql_comment);
 ?>
 <div>
     <div class="container mt-4">
-        <form method="post" action="pages/main/cart/add.php?id=<?php echo $row_product['product_id']?>">
+        <form method="post" action="pages/main/cart/add.php?id=<?php echo $row_product['product_id'] ?>">
             <h1 class="text-center">
                 <?php echo $row_product['product_title']; ?>
             </h1>
             <div class="row">
                 <div class="col-lg-4">
-                   <div class="card">
-                    <img src="./assets/images/products/<?php echo $row_product['product_image'];?>"
-                    style="display: inline-block; width: 100%; height: 400px; object-fit: contain; object-position: center center;"
-                    >
-                   </div>
+                    <div class="card">
+                        <img src="./assets/images/products/<?php echo $row_product['product_image']; ?>"
+                            style="display: inline-block; width: 100%; height: 400px; object-fit: contain; object-position: center center;">
+                    </div>
                 </div>
                 <div class="col-lg-4">
                     <h5 class="text-center mb-3">Chi Tiết Sản Phẩm</h5>
-                    <h6>Giá Bán: <?php echo number_format($row_product['product_price'],0,',','.')?> VND/Vol</h6>
-                    <h6>Giảm Giá: <?php echo -$row_product['product_discount']?>%</h6>
-                    <h6>Giá Mua: <?php echo number_format($row_product['product_price'] *(100 - $row_product['product_discount'])/ 100,0,',','.')?> VND/Vol</h6>
+                    <h6>Giá Bán: <?php echo number_format($row_product['product_price'], 0, ',', '.') ?> VND/Vol</h6>
+                    <h6>Giảm Giá: <?php echo -$row_product['product_discount'] ?>%</h6>
+                    <h6>Giá Mua:
+                        <?php echo number_format($row_product['product_price'] * (100 - $row_product['product_discount']) / 100, 0, ',', '.') ?>
+                        VND/Vol</h6>
                     <?php if (isset($_SESSION['user_id'])) {
                         ?>
                         <div class="form-group">
                             <label for="quantity"><b>Số Lượng:</b></label>
-                            <input type="number" class="form-control" id="quantity" name="quantity" value="1">
+                            <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1"
+                                max='10'>
                         </div>
-                        <?php if($row_product['product_quantity'] > 0 ){?>
-                        <div>
-                            <input type="submit" class="btn btn-success" name='mua' value="Thêm vào giỏ">
-                        </div>
+                        <?php if ($row_product['product_quantity'] > 0) { ?>
+                            <div>
+                                <input type="submit" class="btn btn-success" name='mua' value="Thêm vào giỏ">
+                            </div>
                         <?php } else { ?>
                             <p class="text-danger">Sản phẩm tạm thời hết hàng !!!</p>
-                        <?php
+                            <?php
                         }
                     }
                     ?>
                 </div>
                 <div class="col-lg-4">
                     <div class="card p-3">
-                    <h5 class="text-center">Mô Tả</h5>
-                    <hr>
-                    <p class="font-italic">
-                        "<?php echo $row_product['product_description']; ?>"
-                    </p>
-                    <p>Tác giả: <?php echo $row_product['product_author']; ?></p>
+                        <h5 class="text-center">Mô Tả</h5>
+                        <hr>
+                        <p class="font-italic">
+                            "<?php echo $row_product['product_description']; ?>"
+                        </p>
+                        <p>Tác giả: <?php echo $row_product['product_author']; ?></p>
                     </div>
                 </div>
             </div>
-        </form>       
+        </form>
     </div>
     <div class="container my-5">
         <h3>Bình Luận: </h3>
-        <form class="form-floating" action="pages/main/product/comment.php?product_id=<?php echo $row_product['product_id']; ?>" method="POST">
+        <form class="form-floating"
+            action="pages/main/product/comment.php?product_id=<?php echo $row_product['product_id']; ?>" method="POST">
             <?php
-                while ($row_comment = mysqli_fetch_array($query_comment)) {
-            ?>
-                    <div class="alert alert-success" role="alert">
+            while ($row_comment = mysqli_fetch_array($query_comment)) {
+                ?>
+                <div class="alert alert-success" role="alert">
                     <p>
                         <small class="font-weight-bold">
                             <?php echo $row_comment['user_fullname']; ?>
@@ -72,26 +75,25 @@
                         </small>
                     </p>
                     <p>
-                    <?php echo $row_comment['comment_content']; ?>
+                        <?php echo $row_comment['comment_content']; ?>
                     </p>
-                    </div>
-                    <?php
-                }
-                ?>
+                </div>
+                <?php
+            }
+            ?>
             <?php if (isset($_SESSION['user_id'])) {
                 ?>
                 <div class="form">
-                    <textarea class="form-control" placeholder="Leave your comment!"
-                        name="comment_content" style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave your comment!" name="comment_content"
+                        style="height: 100px"></textarea>
                     </br>
                 </div>
                 <div class="action">
-                    <input type="submit" class="btn btn-success" name='comment' 
-                        value="Comment" style="float:right">
+                    <input type="submit" class="btn btn-success" name='comment' value="Comment" style="float:right">
                 </div>
-            <?php
+                <?php
             }
             ?>
-         </form>
-    </div>      
+        </form>
+    </div>
 </div>

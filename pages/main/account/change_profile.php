@@ -16,19 +16,19 @@
       <form action="pages/main/account/change.php?id=<?= $user_id?>" method="POST">
         <div class="form-group input-group">
           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-          <input required name="fullname" class="form-control" value="<?php echo $fullname ?>">
+          <input required name="fullname" class="form-control" value="<?=$fullname ?>">
         </div>
         <div class="form-group input-group">
           <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-          <input required name="email" class="form-control" value="<?php echo  $email?>">
+          <input required name="email" class="form-control" value="<?=$email?>">
         </div>
         <div class="form-group input-group">
           <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-          <input required name="phone" class="form-control" value="<?php echo $phone ?>">
+          <input required name="phone" class="form-control" value="<?=$phone ?>">
         </div>
         <div class="form-group input-group">
           <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-          <input required name="address" class="form-control" type="text" value="<?php echo  $address?>">
+          <input required name="address" class="form-control" type="text" value="<?=$address?>">
         </div>
         </br>
         <div class="form-group">
